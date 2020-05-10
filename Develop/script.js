@@ -5,33 +5,29 @@
 } */
 
 function getRandomLower () {
-  const lowers = 'abcdefghijklmnopqrstuvwxyz'.split('');
-  const lower = lowers[Math.floor(Math.random() * lowers.length)];
+  const lower = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  return lower[Math.floor(Math.random() * lower.length)];
   
-  return lower;
 }
 console.log(getRandomLower());
 
 function getRandomUpper () {
-  const uppers = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-  const upper = uppers[Math.floor(Math.random() * uppers.length)];
+  const upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  return upper[Math.floor(Math.random() * upper.length)];
   
-  return upper;
 }
 console.log(getRandomUpper());
 
 function getRandomNumber () {
   const numbers = '0123456789'.split('');
-  const number = numbers[Math.floor(Math.random() * numbers.length)];
+  return numbers[Math.floor(Math.random() * numbers.length)];
   
-  return number;
 }
 console.log(getRandomNumber());
 
 function getRandomSymbol () {
   const symbols = ' !@#$%^&*(){}[]=<>/,.?'.split('');;
-  const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+  return symbols[Math.floor(Math.random() * symbols.length)];
   
-  return symbol;
 }
 console.log(getRandomSymbol());
