@@ -16,11 +16,11 @@ const masterFunc = {
   symbol: getRandomSymbol
 };
 
-// Validate criteria selected
+// Checked Variables
 generateEl.addEventListener('click', (event) => {
   event.preventDefault;
   const length = parseInt(lengthEl.value);  // parseInt - string to number
-  const hasLower = lowercaseEl.checked;   // value and checked validate selected items
+  const hasLower = lowercaseEl.checked;   // value and checked validate selected items, if true or false checked
   const hasUpper = uppercaseEl.checked;
   const hasNumber = numbersEl.checked;
   const hasSymbol = symbolsEl.checked;
@@ -28,7 +28,30 @@ generateEl.addEventListener('click', (event) => {
 console.log(hasLower, hasUpper, hasNumber, hasSymbol);
 console.log(length)
 
-})
+passwordEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol);
+
+});
+
+// Generate Password
+function generatePassword(lower, upper, number, symbol, length) {
+  let generatedPassword = '';
+  const variables = lower + upper + number + symbol; //counts number of checked values
+  console.log('variables', variables);
+
+  const masterArr = [{lower}, {upper}, {number}, {symbol}].filter;  // curly bracket makes it so it tells you which variable is true. ex) lower: true
+  console.log('masterArr', masterArr);
+
+  (item => Object.values(item)[0]) // removes unchecked values from array
+
+  if(variables === 0) {  // if no variables checked, returns nothing
+    return '';
+  }
+
+  for(let i = 0; i < length; i++) {
+    masterArr.forEach(type )
+  }
+}
+
 
 
 // Generate Function
