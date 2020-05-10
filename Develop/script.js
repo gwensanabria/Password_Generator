@@ -25,8 +25,8 @@ generateEl.addEventListener('click', (event) => {
   const hasNumber = numbersEl.checked;
   const hasSymbol = symbolsEl.checked;
 
-console.log(hasLower, hasUpper, hasNumber, hasSymbol);
-console.log(length)
+// console.log(hasLower, hasUpper, hasNumber, hasSymbol);
+// console.log(length)
 
 passwordEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol);
 
@@ -34,12 +34,12 @@ passwordEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol
 
 // Generate Password
 function generatePassword(lower, upper, number, symbol, length) {
-  let generatedPassword = '';
+  let generatedPassword = ''; // initialize key
   const variables = lower + upper + number + symbol; //counts number of checked values
-  console.log('variables', variables);
+  // console.log('variables', variables);
 
   const masterArr = [{lower}, {upper}, {number}, {symbol}].filter;  // curly bracket makes it so it tells you which variable is true. ex) lower: true
-  console.log('masterArr', masterArr);
+  // console.log('masterArr', masterArr);
 
   (item => Object.values(item)[0]) // removes unchecked values from array
 
@@ -47,9 +47,18 @@ function generatePassword(lower, upper, number, symbol, length) {
     return '';
   }
 
+  
   for(let i = 0; i < length; i++) {
-    masterArr.forEach(type )
+    masterArr.forEach(master => {
+      const passName = Object.keys(master)[0];
+      // console.log('passName:', passName);
+
+      generatedPassword += masterFunc[passName]();
+    });
   }
+console.log(generatedPassword);
+
+  return generatedPassword;
 }
 
 
@@ -64,22 +73,24 @@ function getRandomLower () {
   const lower = 'abcdefghijklmnopqrstuvwxyz'.split('');
   return lower[Math.floor(Math.random() * lower.length)];
 }
-console.log(getRandomLower());
+// console.log(getRandomLower());
 
 function getRandomUpper () {
   const upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   return upper[Math.floor(Math.random() * upper.length)];
 }
-console.log(getRandomUpper());
+// console.log(getRandomUpper());
 
 function getRandomNumber () {
   const numbers = '0123456789'.split('');
   return numbers[Math.floor(Math.random() * numbers.length)];
 }
-console.log(getRandomNumber());
+// console.log(getRandomNumber());
 
 function getRandomSymbol () {
   const symbols = ' !@#$%^&*(){}[]=<>/,.?'.split('');;
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
-console.log(getRandomSymbol());
+// console.log(getRandomSymbol());
+
+// console.log(); CANNOT COME AFTER RETURN IF IN CURLY BRACKET
