@@ -16,11 +16,17 @@ const masterFunc = {
   symbol: getRandomSymbol
 };
 
-generateEl.addEventListener('click', () => {
+// Validate criteria selected
+generateEl.addEventListener('click', (event) => {
   event.preventDefault;
-  const length = lengthEl.Value;
+  const length = parseInt(lengthEl.value);  // parseInt - string to number
+  const hasLower = lowercaseEl.checked;   // value and checked validate selected items
+  const hasUpper = uppercaseEl.checked;
+  const hasNumber = numbersEl.checked;
+  const hasSymbol = symbolsEl.checked;
 
-console.log(length);
+console.log(hasLower, hasUpper, hasNumber, hasSymbol);
+console.log(length)
 
 })
 
