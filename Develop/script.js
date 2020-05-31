@@ -28,28 +28,28 @@ generateEl.addEventListener('click', (event) => {
 // console.log(hasLower, hasUpper, hasNumber, hasSymbol);
 // console.log(length)
 
-passwordEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol);
+passwordEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
 
 });
 
 // Generate Password
 function generatePassword(lower, upper, number, symbol, length) {
   let generatedPassword = ''; // initialize key
-  const variables = lower + upper + number + symbol; //counts number of checked values
-  // console.log('variables', variables);
+  const allVar = lower + upper + number + symbol; //counts number of checked values
+  // console.log('typesCount', typesCount);
 
-  const masterArr = [{lower}, {upper}, {number}, {symbol}].filter;  // curly bracket makes it so it tells you which variable is true. ex) lower: true
+  const masterArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);  // curly bracket makes it so it tells you which variable is true. ex) lower: true
   // console.log('masterArr', masterArr);
 
-  (item => Object.values(item)[0]) // removes unchecked values from array
+  // (item => Object.values(item)[0]) // removes unchecked values from array
 
-  if(variables === 0) {  // if no variables checked, returns nothing
+  if(allVar === 0) {  // if no variables checked, returns nothing
     return '';
   }
 
   
-  for(let i = 0; i < length; i++) {
-    masterArr.forEach(master => {
+  for(let i = 0; i < length; i+=allVar) {   // i+= keeps it at selected length
+    masterArr.forEach (master => {
       const passName = Object.keys(master)[0];
       // console.log('passName:', passName);
 
@@ -57,8 +57,8 @@ function generatePassword(lower, upper, number, symbol, length) {
     });
   }
 console.log(generatedPassword);
-
-  return generatedPassword;
+  
+return generatedPassword;
 }
 
 
